@@ -24,7 +24,7 @@ public class Customer {
     private String shipinfo;
     private int ccinfo;
     private List<Customer> customerdetails = new ArrayList<>();
-    private HashMap<String, Customer> hmap = new HashMap<String, Customer>();
+
 public Customer(){
 this.fname="";
 this.lname="";
@@ -142,24 +142,8 @@ this.password="";
     }
 
 
-    public void register(Customer c,String uid)
-    {
-        customerdetails.add(c);
-        hmap.put(uid,c);
 
 
-    }
 
 
-    public boolean checklogin(String uid,String pass)
-    {
-        Boolean ch=false;
-
-        if( hmap.containsKey(uid))
-        {
-             ch=true;
-
-        }
-return ch;
-    }
 }
