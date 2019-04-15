@@ -10,10 +10,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.group_11_mad3125_project.Controller.Login.Login;
+import com.example.group_11_mad3125_project.Modal.User.Customer;
 import com.example.group_11_mad3125_project.R;
 import com.example.group_11_mad3125_project.Splash_screen;
 
 public class Signup extends AppCompatActivity {
+    Customer cust=Customer.getInstance();
 private Button btn_cancel;
 private Button btn_register;
 private TextView txtfname;
