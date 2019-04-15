@@ -3,19 +3,18 @@ package com.example.group_11_mad3125_project.Controller.signup;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.group_11_mad3125_project.Controller.Login.Login;
-import com.example.group_11_mad3125_project.Modal.User.Customer;
+
 import com.example.group_11_mad3125_project.R;
-import com.example.group_11_mad3125_project.Splash_screen;
 
 public class Signup extends AppCompatActivity {
-    Customer cust=Customer.getInstance();
+
 private Button btn_cancel;
 private Button btn_register;
 private TextView txtfname;
@@ -35,7 +34,7 @@ getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         btn_cancel=findViewById(R.id.btn_cancel);
-
+btn_register=findViewById(R.id.btn_register);
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,5 +57,8 @@ getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
 
+    }
 
-}
+
+
+
