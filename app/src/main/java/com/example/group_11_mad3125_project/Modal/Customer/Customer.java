@@ -10,7 +10,7 @@ public class Customer {
     //singleton created
     private static Customer cust=new Customer();
 
-    /* Static 'instance' method */
+    // Static 'instance' method
     public static Customer getInstance( ) {
         return cust;
     }

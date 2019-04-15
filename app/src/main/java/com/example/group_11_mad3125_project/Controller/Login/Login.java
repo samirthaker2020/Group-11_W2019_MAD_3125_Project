@@ -16,7 +16,7 @@ import com.example.group_11_mad3125_project.R;
 
 public class Login extends AppCompatActivity {
     Customer cust=Customer.getInstance();
-    Customer cs=new Customer();
+    //Customer cs=new Customer();
 private Button btn_signup;
 private Button btn_signin;
 String email,pass;
@@ -33,9 +33,9 @@ private TextView txtpassword,txtemail;
         txtemail = findViewById(R.id.txtuid1);
         txtpassword = findViewById(R.id.txtpass1);
         Customer c1 = new Customer(1, "samir", "thaker", "123", "toronto", "s@gmail.com", "scarborough", 123456);
-        Customer c2 = new Customer(2, "mani", "tuli", "1234", "malton", "mani@gmail.com", "scarborough", 123456555);
+       // Customer c2 = new Customer(2, "mani", "tuli", "1234", "malton", "mani@gmail.com", "scarborough", 123456555);
         cust.register(c1);
-        cust.register(c2);
+
 
 
 
