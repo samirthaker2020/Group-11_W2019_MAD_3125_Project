@@ -1,5 +1,6 @@
 package com.example.group_11_mad3125_project.Controller.Main_menu;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,6 +14,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.group_11_mad3125_project.Controller.Login.Login;
+import com.example.group_11_mad3125_project.Controller.Product.Product;
+import com.example.group_11_mad3125_project.Controller.signup.Signup;
 import com.example.group_11_mad3125_project.R;
 
 public class Main_menu extends AppCompatActivity
@@ -69,9 +73,8 @@ public class Main_menu extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -85,6 +88,8 @@ public class Main_menu extends AppCompatActivity
         if (id == R.id.nav_viewprofile) {
             // Handle the camera action
         } else if (id == R.id.nav_viewproducts) {
+            Intent LoginIntent = new Intent(Main_menu.this, Product.class);
+            startActivity(LoginIntent);
 
         } else if (id == R.id.nav_viewcart) {
 
