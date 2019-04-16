@@ -22,10 +22,10 @@ public class Customer {
     private String address;
     private String email;
     private String shipinfo;
-    private int ccinfo;
+    private String ccinfo;
     private List<Customer> customerdetails = new ArrayList<>();
 
-    public Customer(int customerid, String fname, String lname, String password, String address, String email, String shipinfo, int ccinfo) {
+    public Customer(int customerid, String fname, String lname, String password, String address, String email, String shipinfo, String ccinfo) {
         Customerid = customerid;
         this.fname = fname;
         this.lname = lname;
@@ -42,7 +42,7 @@ public class Customer {
         this.fname="";
         this.lname="";
         this.address="";
-        this.ccinfo=0;
+        this.ccinfo="";
         this.shipinfo="";
         this.email="";
         this.password="";
@@ -113,11 +113,11 @@ public class Customer {
         this.shipinfo = shipinfo;
     }
 
-    public int getCcinfo() {
+    public String getCcinfo() {
         return ccinfo;
     }
 
-    public void setCcinfo(int ccinfo) {
+    public void setCcinfo(String ccinfo) {
         this.ccinfo = ccinfo;
     }
 
@@ -148,11 +148,11 @@ public class Customer {
     public void register(Customer c)
     {
         this.customerdetails.add(c);
-        /*for (Customer c1:this.customerdetails)
+        for (Customer c1:this.customerdetails)
         {
             Log.d("userdata",c1.getEmail());
             Log.d("userdata1",c1.getPassword());
-        }*/
+        }
     }
 
 
