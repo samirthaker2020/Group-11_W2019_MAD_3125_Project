@@ -18,6 +18,7 @@ import com.example.group_11_mad3125_project.Controller.Login.Login;
 import com.example.group_11_mad3125_project.Controller.Product.Product;
 import com.example.group_11_mad3125_project.Controller.signup.Signup;
 import com.example.group_11_mad3125_project.R;
+import com.example.group_11_mad3125_project.Splash_screen;
 
 public class Main_menu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -101,7 +102,8 @@ public class Main_menu extends AppCompatActivity
 
         }
         else if (id == R.id.nav_logout) {
-
+            Intent LoginIntent = new Intent(Main_menu.this, Splash_screen.class);
+            startActivity(LoginIntent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

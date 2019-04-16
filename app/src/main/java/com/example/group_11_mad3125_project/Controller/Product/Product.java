@@ -34,6 +34,7 @@ public class Product extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
       bhome=findViewById(R.id.phome);
+      getSupportActionBar().setTitle("Products");
       getdata();
       bhome.setOnClickListener(new View.OnClickListener() {
           @Override
@@ -65,7 +66,7 @@ public class Product extends AppCompatActivity {
     public void getdata()
     {
         productArrayList = new ArrayList<>();
-            productArrayList.add(new MProduct("1","HardDisk","50","1.jpg","HDD-1TB-5400RPM"));
+        productArrayList.add(new MProduct("1","HardDisk","50","1.jpg","HDD-1TB-5400RPM"));
         productArrayList.add(new MProduct("2","PenDrive","10","2.jpg","ScanDisk 4GB USB3.0"));
     }
 }

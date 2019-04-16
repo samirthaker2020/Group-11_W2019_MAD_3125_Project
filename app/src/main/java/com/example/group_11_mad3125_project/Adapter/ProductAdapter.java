@@ -1,6 +1,7 @@
 package com.example.group_11_mad3125_project.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.group_11_mad3125_project.Controller.Product.ProductDetails;
 import com.squareup.picasso.Picasso;
 
 import com.squareup.picasso.Picasso;
@@ -53,6 +55,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.Myviewho
            // Picasso.get().load("https://lh3.googleusercontent.com/0-BzaWtxoAnsBjQ_wzUcKxyF07XE7v2Kkg1ogPVUdzmQpvaz118uHQEGU6BdtzJuzfo=h1264").into(myviewholder.img1);
           //  myviewholder.img1.setBackgroundColor(Color.rgb(255,255,255));
 
+
+        myviewholder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(mcontext, ProductDetails.class);
+                i.putExtra("pdetails",pro);
+                mcontext.startActivity(i);
+            }
+        });
     }
 
     @Override
