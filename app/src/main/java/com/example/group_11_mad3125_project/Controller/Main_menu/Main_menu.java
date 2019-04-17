@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import com.example.group_11_mad3125_project.Controller.Login.Login;
 import com.example.group_11_mad3125_project.Controller.NeedHelp.NeedHelp;
 import com.example.group_11_mad3125_project.Controller.Product.Product;
+import com.example.group_11_mad3125_project.Controller.ShoppingCart.ShoppingCart;
 import com.example.group_11_mad3125_project.Controller.signup.Signup;
 import com.example.group_11_mad3125_project.R;
 import com.example.group_11_mad3125_project.Splash_screen;
@@ -94,7 +95,8 @@ public class Main_menu extends AppCompatActivity
             startActivity(LoginIntent);
 
         } else if (id == R.id.nav_viewcart) {
-
+            Intent LoginIntent = new Intent(Main_menu.this, ShoppingCart.class);
+            startActivity(LoginIntent);
         } else if (id == R.id.nav_vieworders) {
 
         } else if (id == R.id.nav_needhelp) {

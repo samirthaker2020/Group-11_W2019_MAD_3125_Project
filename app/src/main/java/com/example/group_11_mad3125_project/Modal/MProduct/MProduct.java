@@ -1,6 +1,7 @@
 package com.example.group_11_mad3125_project.Modal.MProduct;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class MProduct implements Serializable {
 
@@ -9,6 +10,7 @@ public class MProduct implements Serializable {
     private String price;
     private String pimage;
     private String description;
+
 
     public MProduct(String pid, String pname, String price, String pimage, String description) {
         this.pid = pid;
