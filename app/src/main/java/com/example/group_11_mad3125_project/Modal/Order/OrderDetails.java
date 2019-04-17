@@ -1,12 +1,14 @@
 package com.example.group_11_mad3125_project.Modal.Order;
 
+import android.util.Log;
+
 import com.example.group_11_mad3125_project.Modal.Customer.Customer;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class OrderDetails {
-
+    private static  OrderDetails or=new OrderDetails();
     private String productid;
     private String productname;
     private double unitprice;
@@ -18,7 +20,9 @@ public class OrderDetails {
     public OrderDetails(List<OrderDetails> cartdetails) {
         this.cartdetails = cartdetails;
     }
-
+    public static OrderDetails getInstance( ) {
+        return or;
+    }
     public OrderDetails()
     {
         this.productid="";
@@ -27,7 +31,7 @@ public class OrderDetails {
         this.quantity=0.0;
         this.unitprice=0.0;
         this.Subtotal=0.0;
-      //  this.cartdetails = new ArrayList<>();
+       // this.cartdetails = new ArrayList<>();
     }
 
     public OrderDetails(String productid, String productname, double unitprice, double subtotal, double quantity, String productimage) {
@@ -112,5 +116,11 @@ public class OrderDetails {
     public void addtocart(OrderDetails or)
     {
         this.cartdetails.add(or);
+
+        for(OrderDetails o:this.cartdetails)
+        {
+            Log.d("det",o.productname);
+            Log.d("det",String.valueOf(o.getSubtotal()));
+        }
     }
 }

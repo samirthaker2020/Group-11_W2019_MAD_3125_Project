@@ -15,9 +15,11 @@ import com.example.group_11_mad3125_project.Modal.Order.OrderDetails;
 import com.example.group_11_mad3125_project.R;
 
 public class ProductDetails extends AppCompatActivity {
+   OrderDetails tmp = OrderDetails.getInstance( );
 private TextView pid,pname,price,desc,qty;
 private ImageView pd_img1;
 private Button btnadd;
+public static OrderDetails or=new OrderDetails();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().setTitle("Product Details");
@@ -45,7 +47,7 @@ private Button btnadd;
             @Override
             public void onClick(View v) {
                 double tot=Double.parseDouble(probj.getPrice()) * Double.parseDouble( qty.getText().toString());
-                OrderDetails or=new OrderDetails();
+
                 OrderDetails addorder=new OrderDetails(probj.getPid(),probj.getPname(),Double.parseDouble(probj.getPrice()),tot,Double.parseDouble(qty.getText().toString()),probj.getPimage());
                 or.addtocart(addorder);
             }
