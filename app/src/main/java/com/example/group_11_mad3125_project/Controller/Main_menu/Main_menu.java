@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.group_11_mad3125_project.Controller.Login.Login;
+import com.example.group_11_mad3125_project.Controller.NeedHelp.NeedHelp;
 import com.example.group_11_mad3125_project.Controller.Product.Product;
 import com.example.group_11_mad3125_project.Controller.signup.Signup;
 import com.example.group_11_mad3125_project.R;
@@ -97,7 +98,8 @@ public class Main_menu extends AppCompatActivity
         } else if (id == R.id.nav_vieworders) {
 
         } else if (id == R.id.nav_needhelp) {
-
+            Intent LoginIntent = new Intent(Main_menu.this, NeedHelp.class);
+            startActivity(LoginIntent);
         } else if (id == R.id.nav_contactus) {
 
         }
