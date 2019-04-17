@@ -1,5 +1,7 @@
 package com.example.group_11_mad3125_project.Controller.Product;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -70,10 +72,28 @@ public static OrderDetails or=new OrderDetails();
         btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                double tot=Double.parseDouble(probj.getPrice()) * Double.parseDouble( qty.getText().toString());
 
-                OrderDetails addorder=new OrderDetails(probj.getPid(),probj.getPname(),Double.parseDouble(probj.getPrice()),tot,Double.parseDouble(qty.getText().toString()),probj.getPimage());
-                or.addtocart(addorder);
+
+                    double tot = Double.parseDouble(probj.getPrice()) * Double.parseDouble(qty.getText().toString());
+
+                    OrderDetails addorder = new OrderDetails(probj.getPid(), probj.getPname(), Double.parseDouble(probj.getPrice()), tot, Double.parseDouble(qty.getText().toString()), probj.getPimage());
+                    or.addtocart(addorder);
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ProductDetails.this);
+
+                    alertDialogBuilder.setTitle("Added To Cart");
+                    alertDialogBuilder
+
+                            .setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+                    alertDialog.show();
+
+
+
+
             }
         });
     }

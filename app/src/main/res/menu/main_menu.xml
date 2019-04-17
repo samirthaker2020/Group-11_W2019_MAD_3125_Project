@@ -4,8 +4,8 @@
     xmlns:andriod="http://schemas.android.com/tools">
     <item android:title="Home"
         android:id="@+id/home"
-        android:icon="@drawable/ic_action_home1"/>
+         />
     <item android:title="Cart"
-        android:icon="@drawable/ic_action_cart"
+
         android:id="@+id/cart"/>
 </menu>

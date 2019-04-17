@@ -1,5 +1,7 @@
 package com.example.group_11_mad3125_project.Controller.Main_menu;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -17,6 +19,7 @@ import android.view.MenuItem;
 import com.example.group_11_mad3125_project.Controller.Login.Login;
 import com.example.group_11_mad3125_project.Controller.NeedHelp.NeedHelp;
 import com.example.group_11_mad3125_project.Controller.Product.Product;
+import com.example.group_11_mad3125_project.Controller.Product.ProductDetails;
 import com.example.group_11_mad3125_project.Controller.ShoppingCart.ShoppingCart;
 import com.example.group_11_mad3125_project.Controller.signup.Signup;
 import com.example.group_11_mad3125_project.R;
@@ -113,7 +116,18 @@ public class Main_menu extends AppCompatActivity
             Intent LoginIntent = new Intent(Main_menu.this, NeedHelp.class);
             startActivity(LoginIntent);
         } else if (id == R.id.nav_contactus) {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Main_menu.this);
 
+            alertDialogBuilder.setTitle("Mandeep@gmail.com");
+            alertDialogBuilder
+
+                    .setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
         }
         else if (id == R.id.nav_logout) {
             Intent LoginIntent = new Intent(Main_menu.this, Splash_screen.class);
