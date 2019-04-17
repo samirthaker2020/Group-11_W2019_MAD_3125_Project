@@ -51,6 +51,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.Myviewho
 
 
             myviewholder.txtname.setText(pro.getPname());
+
+            int imageId = mcontext.getResources().getIdentifier(pro.getPimage(),"drawable", mcontext.getPackageName());
+            myviewholder.img1.setImageResource(imageId);
+        //myviewholder.img1.setImageResource(R.drawable.hdd);
            // Picasso.with(mcontext).load("https://lh3.googleusercontent.com/0-BzaWtxoAnsBjQ_wzUcKxyF07XE7v2Kkg1ogPVUdzmQpvaz118uHQEGU6BdtzJuzfo=h1264").into(myviewholder.img1);
            // Picasso.get().load("https://lh3.googleusercontent.com/0-BzaWtxoAnsBjQ_wzUcKxyF07XE7v2Kkg1ogPVUdzmQpvaz118uHQEGU6BdtzJuzfo=h1264").into(myviewholder.img1);
           //  myviewholder.img1.setBackgroundColor(Color.rgb(255,255,255));
@@ -77,7 +81,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.Myviewho
 
         public Myviewholder(  View itemView) {
             super(itemView);
-           // img1=(ImageView) itemView.findViewById(R.id.productimage);
+            img1=(ImageView) itemView.findViewById(R.id.productimage);
             txtname=(TextView) itemView.findViewById(R.id.productname);
            // Picasso.get().load(products.getImage()).into(productImage);
 

@@ -66,7 +66,10 @@ public class Product extends AppCompatActivity {
     public void getdata()
     {
         productArrayList = new ArrayList<>();
-        productArrayList.add(new MProduct("1","HardDisk","50","1.jpg","HDD-1TB-5400RPM"));
-        productArrayList.add(new MProduct("2","PenDrive","10","2.jpg","ScanDisk 4GB USB3.0"));
+        productArrayList.add(new MProduct("1","HardDisk","50","hdd","HDD-1TB-5400RPM"));
+        productArrayList.add(new MProduct("2","PenDrive","10","pendrive","ScanDisk 4GB USB3.0"));
+        productArrayList.add(new MProduct("3","Monitor","120","monitor","Dell Monitor"));
+        productArrayList.add(new MProduct("4","Iphone 7Plus","600","iphone7p","Iphone7Plus"));
+        productArrayList.add(new MProduct("5","EarPods","60","earpods","Ear Pods"));
     }
 }
