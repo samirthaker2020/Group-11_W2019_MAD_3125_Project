@@ -37,10 +37,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Myviewholder> 
     @Override
     public void onBindViewHolder(@NonNull CartAdapter.Myviewholder myviewholder, int i) {
         final OrderDetails cart = cartList.get(i);
-        myviewholder.txtname.setText(cart.getProductname());
-        myviewholder.txtid.setText(cart.getProductid());
-        myviewholder.txtsubtotal.setText(String.valueOf(cart.getSubtotal()));
-        myviewholder.txtqty.setText(String.valueOf(cart.getQuantity()));
+        myviewholder.txtname.setText("ProductName::"+cart.getProductname());
+        myviewholder.txtid.setText("ProductID::"+cart.getProductid());
+        myviewholder.txtsubtotal.setText("SubTotal::$:"+String.valueOf(cart.getSubtotal()));
+        myviewholder.txtqty.setText("Quantity::"+String.valueOf(cart.getQuantity()));
 
         int imageId = mcontext.getResources().getIdentifier(cart.getProductimage(),"drawable", mcontext.getPackageName());
         myviewholder.img1.setImageResource(imageId);

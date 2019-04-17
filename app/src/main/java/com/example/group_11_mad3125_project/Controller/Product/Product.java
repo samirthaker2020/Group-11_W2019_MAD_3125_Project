@@ -9,6 +9,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -33,16 +34,13 @@ public class Product extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
-      bhome=findViewById(R.id.phome);
+    //  bhome=findViewById(R.id.phome);
       getSupportActionBar().setTitle("Products");
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
       getdata();
-      bhome.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              Intent LoginIntent = new Intent(Product.this, Main_menu.class);
-              startActivity(LoginIntent);
-          }
-      });
+
 
         lstproduct=findViewById(R.id.rcproduct);
         image = new ArrayList<>();
@@ -71,5 +69,22 @@ public class Product extends AppCompatActivity {
         productArrayList.add(new MProduct("3","Monitor","120","monitor","Dell Monitor"));
         productArrayList.add(new MProduct("4","Iphone 7Plus","600","iphone7p","Iphone7Plus"));
         productArrayList.add(new MProduct("5","EarPods","60","earpods","Ear Pods"));
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case android.R.id.home:
+                // ProjectsActivity is my 'home' activity
+                startActivityAfterCleanup(Main_menu.class);
+                return true;
+        }
+        return (super.onOptionsItemSelected(menuItem));
+    }
+
+    private void startActivityAfterCleanup(Class<?> cls) {
+
+        Intent intent = new Intent(getApplicationContext(), cls);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }
