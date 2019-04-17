@@ -1,14 +1,19 @@
 package com.example.group_11_mad3125_project.Controller.Product;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputFilter;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.group_11_mad3125_project.Controller.Main_menu.Main_menu;
+import com.example.group_11_mad3125_project.Controller.ShoppingCart.ShoppingCart;
 import com.example.group_11_mad3125_project.MinMaxFilter;
 import com.example.group_11_mad3125_project.Modal.MProduct.MProduct;
 import com.example.group_11_mad3125_project.Modal.Order.OrderDetails;
@@ -19,6 +24,7 @@ public class ProductDetails extends AppCompatActivity {
 private TextView pid,pname,price,desc,qty;
 private ImageView pd_img1;
 private Button btnadd;
+private BottomNavigationView b;
 public static OrderDetails or=new OrderDetails();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +47,25 @@ public static OrderDetails or=new OrderDetails();
         desc.setText("Description:"+probj.getDescription());
         int imageId = this.getResources().getIdentifier(probj.getPimage(),"drawable", this.getPackageName());
         this.pd_img1.setImageResource(imageId);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        b=findViewById(R.id.bottomproduct);
+        b.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                boolean ch=false;
+                switch (menuItem.getItemId()) {
+                    case R.id.home:
+                        Intent intent = new Intent(ProductDetails.this, Main_menu.class);
+                        startActivity(intent);
+                        return true;
+                    case R.id.cart:
+                        Intent intentCart = new Intent(ProductDetails.this, ShoppingCart.class);
+                        startActivity(intentCart);
+                        return true;
+                }
+                return  false;
+            }
+        });
 
         btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,5 +76,22 @@ public static OrderDetails or=new OrderDetails();
                 or.addtocart(addorder);
             }
         });
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case android.R.id.home:
+                // ProjectsActivity is my 'home' activity
+                startActivityAfterCleanup(Main_menu.class);
+                return true;
+        }
+        return (super.onOptionsItemSelected(menuItem));
+    }
+
+    private void startActivityAfterCleanup(Class<?> cls) {
+
+        Intent intent = new Intent(getApplicationContext(), cls);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }

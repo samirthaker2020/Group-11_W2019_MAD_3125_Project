@@ -1,8 +1,10 @@
 package com.example.group_11_mad3125_project.Controller.Product;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenu;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -16,6 +18,7 @@ import android.widget.Button;
 import com.example.group_11_mad3125_project.Adapter.ProductAdapter;
 import com.example.group_11_mad3125_project.Controller.Login.Login;
 import com.example.group_11_mad3125_project.Controller.Main_menu.Main_menu;
+import com.example.group_11_mad3125_project.Controller.ShoppingCart.ShoppingCart;
 import com.example.group_11_mad3125_project.Controller.signup.Signup;
 import com.example.group_11_mad3125_project.Modal.MProduct.MProduct;
 import com.example.group_11_mad3125_project.R;
@@ -28,6 +31,7 @@ public class Product extends AppCompatActivity {
  private Button bhome;
     private List<MProduct> productArrayList;
     private List<String> image;
+    private BottomNavigationView b;
     private RecyclerView lstproduct;
     private ProductAdapter mAdapter;
     @Override
@@ -38,7 +42,24 @@ public class Product extends AppCompatActivity {
       getSupportActionBar().setTitle("Products");
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        b=findViewById(R.id.bottomproduct);
+        b.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                boolean ch=false;
+                switch (menuItem.getItemId()) {
+                    case R.id.home:
+                        Intent intent = new Intent(Product.this, Main_menu.class);
+                        startActivity(intent);
+                       return true;
+                    case R.id.cart:
+                        Intent intentCart = new Intent(Product.this, ShoppingCart.class);
+                        startActivity(intentCart);
+                        return true;
+                }
+                return  false;
+            }
+        });
       getdata();
 
 

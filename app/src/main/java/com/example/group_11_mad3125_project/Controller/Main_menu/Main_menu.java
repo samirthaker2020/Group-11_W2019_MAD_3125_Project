@@ -79,6 +79,10 @@ public class Main_menu extends AppCompatActivity
 
             Intent LoginIntent = new Intent(Main_menu.this, Main_menu.class);
             startActivity(LoginIntent);
+            case R.id.nav_viewcart:
+
+                Intent  d = new Intent(Main_menu.this, ShoppingCart.class);
+                startActivity(d);
         }
 
         //noinspection SimplifiableIfStatement

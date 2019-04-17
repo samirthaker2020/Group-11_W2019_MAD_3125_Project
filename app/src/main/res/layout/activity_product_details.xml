@@ -6,17 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".Controller.Product.ProductDetails">
 
-    <TextView
-        android:id="@+id/logintop3"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-
-        android:layout_marginTop="240dp"
-        android:background="@android:color/holo_orange_light"
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottomproduct"
+        android:layout_width="403dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pd_desc" />
+        app:menu="@menu/main_menu" />
 
     <ImageView
         android:id="@+id/pd_img1"
@@ -85,14 +85,17 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Description"
         android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bottomproduct"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pd_price" />
+        app:layout_constraintTop_toBottomOf="@+id/pd_price"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/txtqty"
