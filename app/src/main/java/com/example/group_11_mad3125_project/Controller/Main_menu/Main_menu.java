@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.view.TextureView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,8 +16,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.example.group_11_mad3125_project.Controller.Login.Login;
+import com.example.group_11_mad3125_project.Controller.Login.Profile;
 import com.example.group_11_mad3125_project.Controller.NeedHelp.NeedHelp;
 import com.example.group_11_mad3125_project.Controller.Product.Product;
 import com.example.group_11_mad3125_project.Controller.Product.ProductDetails;
@@ -27,13 +30,16 @@ import com.example.group_11_mad3125_project.Splash_screen;
 
 public class Main_menu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private TextView userlogin1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +57,21 @@ public class Main_menu extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        View mHeaderView =  navigationView.getHeaderView(0);
+
+        // View
+        userlogin1= (TextView) mHeaderView.findViewById(R.id.userlogin);
+        Bundle mbundle = getIntent().getExtras();
+        if (mbundle != null) {
+            if (mbundle.containsKey("email")) {
+                String name = mbundle.getString("email");
+                userlogin1.setText(name);
+            }
+        }
+
+
+
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -103,6 +124,8 @@ public class Main_menu extends AppCompatActivity
 
         if (id == R.id.nav_viewprofile) {
             // Handle the camera action
+            Intent LoginIntent = new Intent(Main_menu.this, Profile.class);
+            startActivity(LoginIntent);
         } else if (id == R.id.nav_viewproducts) {
             Intent LoginIntent = new Intent(Main_menu.this, Product.class);
             startActivity(LoginIntent);

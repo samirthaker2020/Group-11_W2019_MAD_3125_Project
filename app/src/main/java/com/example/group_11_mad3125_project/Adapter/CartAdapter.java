@@ -6,9 +6,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.group_11_mad3125_project.Controller.ShoppingCart.ShoppingCart;
+import com.example.group_11_mad3125_project.Controller.signup.Signup;
 import com.example.group_11_mad3125_project.Modal.MProduct.MProduct;
 import com.example.group_11_mad3125_project.Modal.Order.OrderDetails;
 import com.example.group_11_mad3125_project.R;
@@ -17,7 +21,7 @@ import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Myviewholder> {
 
-
+    public static ShoppingCart cart=new ShoppingCart();
     private List<OrderDetails> cartList;
     private Context mcontext;
 
@@ -44,6 +48,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Myviewholder> 
 
         int imageId = mcontext.getResources().getIdentifier(cart.getProductimage(),"drawable", mcontext.getPackageName());
         myviewholder.img1.setImageResource(imageId);
+
     }
 
     @Override
@@ -56,6 +61,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Myviewholder> 
     {
         private ImageView img1;
         private TextView txtname,txtqty,txtsubtotal,txtid;
+        private Button btn_checkout;
 
 
         public Myviewholder(  View itemView) {
@@ -65,6 +71,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Myviewholder> 
             txtid=(TextView) itemView.findViewById(R.id.cid);
             txtqty=(TextView) itemView.findViewById(R.id.cqty);
             txtsubtotal=(TextView) itemView.findViewById(R.id.csubtotal);
+           // btn_checkout=(Button) itemView.findViewById(R.id.btn_checkout);
 
 
 

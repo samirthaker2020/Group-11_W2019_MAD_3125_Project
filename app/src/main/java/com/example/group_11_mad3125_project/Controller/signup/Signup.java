@@ -16,6 +16,8 @@ import com.example.group_11_mad3125_project.R;
 
 import java.util.Random;
 
+
+
 public class Signup extends AppCompatActivity {
     Customer cust=Customer.getInstance();
 
@@ -75,8 +77,8 @@ btn_register.setOnClickListener(new View.OnClickListener() {
     public void onClick(View v) {
         Random rand = new Random();
         int x = rand.nextInt(10);
-        Toast.makeText(Signup.this,txtfname.getText().toString(),Toast.LENGTH_LONG).show();
-        Customer c3=new Customer(220,txtfname.getText().toString(),txtlname.getText().toString(),txtpassword.getText().toString(),txtaddress.getText().toString(),txtemailid.getText().toString(),txtshipinfo.getText().toString(),txtccinfo.getText().toString());
+        Toast.makeText(Signup.this,"Registered Succesfully",Toast.LENGTH_LONG).show();
+        Customer c3=new Customer(x,txtfname.getText().toString(),txtlname.getText().toString(),txtpassword.getText().toString(),txtaddress.getText().toString(),txtemailid.getText().toString(),txtshipinfo.getText().toString(),txtccinfo.getText().toString());
       //  Customer c4=new Customer();
         cust.register(c3);
         Intent LoginIntent = new Intent(Signup.this,Login.class);

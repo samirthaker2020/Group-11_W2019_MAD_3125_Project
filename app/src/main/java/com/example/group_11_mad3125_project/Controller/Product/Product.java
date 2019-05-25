@@ -53,15 +53,15 @@ public class Product extends AppCompatActivity {
                         startActivity(intent);
                        return true;
                     case R.id.cart:
-                        Intent intentCart = new Intent(Product.this, ShoppingCart.class);
-                        startActivity(intentCart);
-                        return true;
-                }
-                return  false;
-            }
-        });
-      getdata();
 
+        Intent intentCart = new Intent(Product.this, ShoppingCart.class);
+        startActivity(intentCart);
+        return true;
+    }
+                return  false;
+}
+        });
+                getdata();
 
         lstproduct=findViewById(R.id.rcproduct);
         image = new ArrayList<>();
